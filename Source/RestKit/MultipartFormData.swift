@@ -23,12 +23,12 @@ public class MultipartFormData {
     }
     
     private var encapsulatedBoundary: Data {
-        let boundary = "\r\n--\(self.boundary)\r\n"
+        let boundary = "\r\n\r\n--\(self.boundary)\r\n"
         return boundary.data(using: .utf8, allowLossyConversion: false)!
     }
     
     private var finalBoundary: Data {
-        let boundary = "\r\n--\(self.boundary)--\r\n"
+        let boundary = "\r\n\r\n--\(self.boundary)--\r\n"
         return boundary.data(using: .utf8, allowLossyConversion: false)!
     }
     

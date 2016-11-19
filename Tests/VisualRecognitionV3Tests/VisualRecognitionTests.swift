@@ -40,7 +40,7 @@ class VisualRecognitionTests: XCTestCase {
             ("testClassifyByURL3", testClassifyByURL3),
             ("testClassifyByURL4", testClassifyByURL4),
             ("testClassifyByURL5", testClassifyByURL5),
-//            ("testClassifyImage1", testClassifyImage1), // TODO: add these tests back after fixing upload bug
+            ("testClassifyImage1", testClassifyImage1), // TODO: add these tests back after fixing upload bug
 //            ("testClassifyImage2", testClassifyImage2),
 //            ("testClassifyImage3", testClassifyImage3),
 //            ("testClassifyImage4", testClassifyImage4),
@@ -725,42 +725,42 @@ class VisualRecognitionTests: XCTestCase {
     }
     
 //     TODO: Add these tests back when we have updated the classify function.
-//    
-//    /** Classify an uploaded image using the default classifier and all default parameters. */
-//    func testClassifyImage1() {
-//        let description = "Classify an uploaded image using the default classifier."
-//        let expectation = self.expectation(description: description)
-//        
-//        visualRecognition.classify(imageFile: car, failure: failWithError) {
-//            classifiedImages in
-//            
-//            // verify classified images object
-//            XCTAssertNil(classifiedImages.warnings)
-//            XCTAssertEqual(classifiedImages.images.count, 1)
-//            
-//            // verify the image's metadata
-//            let image = classifiedImages.images.first
-//            XCTAssertNil(image?.sourceURL)
-//            XCTAssertNil(image?.resolvedURL)
-//            XCTAssert(image?.image == "car.png")
-//            XCTAssertNil(image?.error)
-//            XCTAssertEqual(image?.classifiers.count, 1)
-//            
-//            // verify the image's classifier
-//            let classifier = image?.classifiers.first
-//            XCTAssertEqual(classifier?.classifierID, "default")
-//            XCTAssertEqual(classifier?.name, "default")
-//            XCTAssertEqual(classifier?.classes.count, 4)
-//            XCTAssertEqual(classifier?.classes.first?.classification, "car")
-//            if let score = classifier?.classes.first?.score {
-//                XCTAssertGreaterThan(score, 0.5)
-//            }
-//            
-//            expectation.fulfill()
-//        }
-//        waitForExpectations()
-//    }
-//    
+    
+    /** Classify an uploaded image using the default classifier and all default parameters. */
+    func testClassifyImage1() {
+        let description = "Classify an uploaded image using the default classifier."
+        let expectation = self.expectation(description: description)
+        
+        visualRecognition.classify(imageFile: car, failure: failWithError) {
+            classifiedImages in
+            
+            // verify classified images object
+            XCTAssertNil(classifiedImages.warnings)
+            XCTAssertEqual(classifiedImages.images.count, 1)
+            
+            // verify the image's metadata
+            let image = classifiedImages.images.first
+            XCTAssertNil(image?.sourceURL)
+            XCTAssertNil(image?.resolvedURL)
+            XCTAssert(image?.image == "car.png")
+            XCTAssertNil(image?.error)
+            XCTAssertEqual(image?.classifiers.count, 1)
+            
+            // verify the image's classifier
+            let classifier = image?.classifiers.first
+            XCTAssertEqual(classifier?.classifierID, "default")
+            XCTAssertEqual(classifier?.name, "default")
+            XCTAssertEqual(classifier?.classes.count, 4)
+            XCTAssertEqual(classifier?.classes.first?.classification, "car")
+            if let score = classifier?.classes.first?.score {
+                XCTAssertGreaterThan(score, 0.5)
+            }
+            
+            expectation.fulfill()
+        }
+        waitForExpectations()
+    }
+//
 //    /** Classify an uploaded image using the default classifier and specifying default parameters. */
 //    func testClassifyImage2() {
 //        let description = "Classify an uploaded image using the default classifier."
